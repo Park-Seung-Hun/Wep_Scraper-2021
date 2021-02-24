@@ -8,9 +8,10 @@ indeed_soup = BeautifulSoup(indeed_result.text,"html.parser") # html 분석을 �
 
 pagination= indeed_soup.find("ul",{"class":"pagination-list"}) # class명이 pagination을 찾기 위한 변수
 
-pages = pagination.find_all('a') # 모든 a 태그를 찾기 위한 변수
+links = pagination.find_all('a') # 모든 a 태그를 찾기 위한 변수
 
-spans=[]
-for page in pages: # a안에 span을 몯  가져온다.
-    spans.append(page.find("span"))
-print(spans[0:-1])
+pages=[]
+for link in links[:-1]: # next를 제와한 페이지 숫자를 가져온다.
+    pages.append(int(link.string)) # text를 추출하여 숫자로 바꾸어 저장한다.
+
+max_page = pages[-1]
