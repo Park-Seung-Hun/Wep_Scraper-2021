@@ -44,6 +44,7 @@ def extract_job(html):
 def extract_jobs(last_pages):
     jobs = []
     for page in range(last_pages):
+        print(f"Scrapping Indeed: page: {page}")
         result = requests.get(f"{URL}&start={page*LIMIT}") #status_code = 200은 request가 잘 동작한 것.
         soup = BeautifulSoup(result.text,"html.parser")
         results = soup.find_all("div",{"class":"jobsearch-SerpJobCard"}) # 일자리 정보가 들어있음
