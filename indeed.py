@@ -24,9 +24,17 @@ def extract_indeed_jobs(last_pages):
     result = requests.get(f"{URL}&start={0*LIMIT}") #status_code = 200은 request가 잘 동작한 것.
     soup = BeautifulSoup(result.text,"html.parser")
     results = soup.find_all("div",{"class":"jobsearch-SerpJobCard"}) # 일자리 정보가 들어있음
+    
     for result in results:
         title = result.find("h2",{"class":"title"}).find("a")["title"] # 일자리의 title을 추출
-        print(title)
-
-
+        company = result.find("span", {"class": "company"}) # span과 a로 이루어져있어서 조건문으로 체크해준다.
+        company_anchor = company.find("a")
+        if(company_anchor is not None):
+            company = str(company.find("a").string)
+        else:
+            company = str(company.string)
+        company = company.strip("\n")
+        
+        print(title,company)
+        
     return jobs
