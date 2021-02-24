@@ -5,7 +5,7 @@ LIMIT = 50
 URL = f"https://kr.indeed.com/%EC%B7%A8%EC%97%85?as_and=python&as_phr=&as_any=&as_not=&as_ttl=&as_cmp=&jt=all&st=&salary=&radius=25&l=%EC%84%9C%EC%9A%B8&fromage=any&limit={LIMIT}&sort=&psf=advsrch&from=advancedsearch"
 
 # 페이지 정보 추출
-def extract_indeed_pages():
+def get_last_pages():
     result = requests.get(URL)
     soup = BeautifulSoup(result.text,"html.parser") # html 분석을 위한 BeautifulSoup
     pagination = soup.find("ul",{"class":"pagination-list"}) # class명이 pagination을 찾기 위한 변수
@@ -28,16 +28,20 @@ def extract_job(html):
         job_id = html["data-jk"] # 지원 링크
        
         company = html.find("span", {"class": "company"}) # 지원 회사
-        company_anchor = company.find("a")
-        if(company_anchor is not None):
-            company = str(company.find("a").string)
+       
+        if company:
+            company_anchor = company.find("a")
+            if(company_anchor is not None):
+                company = str(company.find("a").string)
+            else:
+                company = str(company.string)
+            company = company.strip("\n")
         else:
-            company = str(company.string)
-        company = company.strip("\n")
+            company = None
 
         return {'title': title, 'company': company, 'location': location, 'link': f"{URL}&vjk={job_id}"}
 
-def extract_indeed_jobs(last_pages):
+def extract_jobs(last_pages):
     jobs = []
     for page in range(last_pages):
         print(f"Scrapping page {page}")
@@ -48,4 +52,9 @@ def extract_indeed_jobs(last_pages):
         for result in results:
             job = extract_job(result)
             jobs.append(job)
+    return jobs
+
+def get_jobs():
+    last_pages = get_last_pages()
+    jobs = extract_jobs(last_pages)
     return jobs
