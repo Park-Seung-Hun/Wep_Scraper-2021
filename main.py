@@ -47,9 +47,9 @@ def export():
         save_to_file(existingJobs,word)
         file_name=f"{word}.csv"
         return send_file(file_name,
-            mimetype='csv',
-            attachment_filename=file_name,
-            as_attachment=True)
+            mimetype='text/csv',
+            as_attachment=True,
+            attachment_filename = file_name)
     except:
         return redirect("/")
 
