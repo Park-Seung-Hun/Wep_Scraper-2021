@@ -1,13 +1,10 @@
 from flask import Flask,render_template, request, redirect, send_file
 from scrapper import get_jobs
 from exporter import save_to_file
-import os 
 
 app = Flask("HelloScrapper")
 db = {} # fake database
 
-currentPath = os.getcwd()
-print(currentPath)
 
 @app.route("/") # "/"에 접속하면 home이라는 함수 실행 -> /는 root이다.
 def home():
