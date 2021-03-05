@@ -8,7 +8,7 @@ db = {} # fake database
 
 @app.route("/") # "/"에 접속하면 home이라는 함수 실행 -> /는 root이다.
 def home():
-    return render_template("potato.html")
+    return render_template("main.html")
 
 @app.route("/report") # 화면에 출력
 def report():
