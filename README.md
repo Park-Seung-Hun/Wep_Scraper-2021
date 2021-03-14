@@ -1,6 +1,6 @@
-# wep_scraper-2021
+# webscraper-2021
  
-### 📖 wep_scraper-2021
+### 📖 webscraper-2021
 > 파이썬을 이용하여 구직 사이트의 정보를 추출하는 프로그램을 구현해보았다. <br>
 
 
@@ -11,10 +11,10 @@
 
 
 ### 📕 주요 기능
-<img src="https://github.com/Park-Seung-Hun/Wep_Scraper-2021/blob/main/resultImage/result.gif" width="800">
+<img src="https://github.com/Park-Seung-Hun/webScraper-2021/blob/main/resultImage/result.gif" width="800">
 
 #### `main.py`
-> 웹 스크래퍼의 모든 기능을 통제하기 위해 만든 파일로 3가지 주요 함수를 담당한다. [main 코드 보러가기](https://github.com/Park-Seung-Hun/Wep_Scraper-2021/blob/main/main.py)<br>
+> 웹 스크래퍼의 모든 기능을 통제하기 위해 만든 파일로 3가지 주요 함수를 담당한다. [main 코드 보러가기](https://github.com/Park-Seung-Hun/webScraper-2021/blob/main/main.py)<br>
 
  1. app.route("/")
 ```python
