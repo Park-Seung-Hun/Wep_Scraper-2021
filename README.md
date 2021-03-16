@@ -17,7 +17,8 @@
 <img src="https://github.com/Park-Seung-Hun/webScraper-2021/blob/main/resultImage/%EC%B6%94%EC%B6%9C.gif" width="80%">
 <img src="https://github.com/Park-Seung-Hun/webScraper-2021/blob/main/resultImage/2021-03-17.png" width="80%">
 
-[csv 파일 보러가기](https://github.com/Park-Seung-Hun/webScraper-2021/blob/main/resultImage/flask%20(1).csv)
+<a href="https://github.com/Park-Seung-Hun/webScraper-2021/blob/main/resultImage/flask%20(1).csv" target="_blank">csv 파일 보러가기</a>
+
 #### `main.py`
 > 웹 스크래퍼의 모든 기능을 통제하기 위해 만든 파일로 3가지 주요 함수를 담당한다. [main 코드 보러가기](https://github.com/Park-Seung-Hun/webScraper-2021/blob/main/main.py)<br>
 
